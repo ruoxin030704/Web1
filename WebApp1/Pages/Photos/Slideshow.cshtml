@@ -1,0 +1,28 @@
+﻿@page
+@model WebApp1.Pages.Photos.SlideshowModel
+@{
+    ViewData["Title"] = "Slideshow";
+}
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @for (var i = 0; i < Model.Photos.Count; i++)
+        {
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                <img src="@Model.Photos[i].ImageUrl" class="d-block w-100" alt="@Model.Photos[i].Title">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>@Model.Photos[i].Title</h5>
+                    <p>@Model.Photos[i].Description</p>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

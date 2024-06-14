@@ -1,0 +1,28 @@
+﻿@page
+@model WebApp1.Pages.Photos.IndexModel
+@{
+    ViewData["Title"] = "Photos";
+}
+
+<h1>Photos</h1>
+<p>
+    <a class="btn btn-primary" asp-page="Create">Add New Photo</a>
+    <a class="btn btn-secondary" asp-page="Slideshow">Slideshow</a>
+</p>
+<p>以下為添加的圖片與圖片描述，可以新增圖片也可進行刪除或修改。</p>
+
+<div class="d-flex flex-wrap">
+    @foreach (var photo in Model.Photos)
+    {
+        <div class="card">
+            <img class="card-img-top" src="@photo.ImageUrl" alt="@photo.Title">
+            <div class="card-body">
+                <h5 class="card-title">@photo.Title</h5>
+                <p class="card-text">@photo.Description</p>
+                <p class="card-text"><small class="text-muted">@photo.DateAdded.ToString("yyyy/MM/dd")</small></p>
+                <a asp-page="./Edit" asp-route-id="@photo.Id" class="btn btn-sm btn-primary">Edit</a>
+                <a asp-page="./Delete" asp-route-id="@photo.Id" class="btn btn-sm btn-danger">Delete</a>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@model WebApp1.Pages.Posts.EditModel
+@{
+    ViewData["Title"] = "Edit Post";
+}
+
+<h1>Edit Post</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Post.Title" class="control-label"></label>
+        <input asp-for="Post.Title" class="form-control" />
+        <span asp-validation-for="Post.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Post.Content" class="control-label"></label>
+        <textarea asp-for="Post.Content" class="form-control"></textarea>
+        <span asp-validation-for="Post.Content" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Post.Author" class="control-label"></label>
+        <input asp-for="Post.Author" class="form-control" />
+        <span asp-validation-for="Post.Author" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

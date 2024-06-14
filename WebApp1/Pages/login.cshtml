@@ -1,0 +1,28 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<fron class=" text-center"><h2>Login</h2></fron>
+
+<form method="post" class="text-center">
+    <div class="form-group">
+        <label for="username">ID:</label>
+        <input type="text" class="form-control form-control-lg mx-auto" style="width: 300px;" id="username" name="username">
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control form-control-lg mx-auto" style="width: 300px;" id="password" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Login</button>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <p class="text-danger">@TempData["ErrorMessage"]</p>
+    }
+</form>
+
+<from class="text-center">
+    <h3>ID:ruoxin</h3>
+    <h3>password:111010576</h3>
+</from>
+
